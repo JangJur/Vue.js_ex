@@ -1,34 +1,18 @@
-var User = {
-    template: `
-    <div>
-        User Component
-        <router-view></router-view>
-    </div>
-    `
-};
-var UserProfile = { template: '<p>User Profile Component</p>' };
-var UserPost = { template: '<p>User Post Component</p>' };
-
-var routes = [
-    {
-        path: '/user',
-        component: User,
-        children: [
-            {
-                path: 'posts',
-                component: UserPost
-            },
-            {
-                path: 'profile',
-                component: UserProfile
-            },
-        ]
-
-    }
-];
+var Body = { template: '<div>This is Body</div>' };
+var Header = { template: '<div>This is Header</div>' };
+var Footer = { template: '<div>This is Footer</div>' };
 
 var router = new VueRouter({
-    routes
+    routes: [
+        {
+            path: '/',
+            components: {
+                default: Body,
+                header: Header,
+                footer: Footer
+            }
+        }
+    ]
 });
 
 var app = new Vue({
