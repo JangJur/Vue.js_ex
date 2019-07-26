@@ -1,32 +1,12 @@
-var Body = { template: '<div>This is Body</div>' };
-var Header = { template: '<div>This is Header</div>' };
-var Footer = { template: '<div>This issss Footer</div>' };
-
-var LoginBody = { template: '<div>This is LoginBody</div>' };
-var LoginHeader = { template: '<div>This is LoginHeader</div>' };
-var LoginFooter = { template: '<div>This is LoginsFooter</div>' };
-
-var router = new VueRouter({
-    routes: [
-        {
-            path: '/',
-            components: {
-                default: Body,
-                header: Header,
-                footer: Footer
-            }
-        },
-        {
-            path: '/login',
-            components: {
-                default: LoginBody,
-                header: LoginHeader,
-                footer: LoginFooter
-            }
+new Vue({
+    el: '#app',
+    methods: {
+        getData: function() {
+            this.$http.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+            .then(function(response){
+                console.log(response);
+                console.log(JSON.parse(response.data));
+            });
         }
-    ]
+    }
 });
-
-var app = new Vue({
-    router
-}).$mount('#app');
