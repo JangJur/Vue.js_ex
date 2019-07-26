@@ -8,7 +8,8 @@
 
 <body>
     <div id="app">
-        <child-component></child-component>
+        <child-component v-bind:propsdata="message"></child-component>
+        <slibling-component v-bind:slib="anotherMessage"></slibling-component>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
