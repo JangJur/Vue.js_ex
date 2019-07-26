@@ -1,18 +1,36 @@
-Vue.component('todo - footer', {
-    template: '<p>This is another global child component</p>'
+Vue.component('todo-footer', {
+    props: ['propsdata'],
+    template: '<p>{{ propsdata }}</p>'
 });
+var cmp1Data;
 
-var cmp = {
-    template: '<p>This is another local child component</p>'
+var cmp1 = {
+    template: '<div>This is another local child component1 <br> : {{ cmp1Data }}</div>',
+    data: function() {
+        return {
+            cmp1Data : 100
+        }
+    }
+};
+
+var cmp2 = {
+    template: '<div>This is another local child component2 <br> : {{ cmp2Data }}</div>',
+    data: function() {
+        return {
+            cmp2Data : cmp1.data.cmp1Data
+        }
+    }
 };
 
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'This is a parent component'
+        props_msg: 'Hello Vue! passed from Parent Component'
     },
 
     components: {
-        'todo-list': cmp
-    }
+        'todo-list1': cmp1,
+        'todo-list2': cmp2
+    },
+
 });

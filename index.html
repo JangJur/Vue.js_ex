@@ -10,10 +10,13 @@
 <body>
     <div id="app">
         <header>
-            <h3>{{message}}</h3>
+            <h3>{{props_msg}}</h3>
         </header>
-        <todo-footer></todo-footer>
-        <todo-list></todo-list>
+
+        <todo-footer v-bind:propsdata="props_msg"></todo-footer>
+        <todo-list1></todo-list1>
+        <todo-list2></todo-list2>
+
     </div>
 
     <script src="js/vendor/vue.js"></script>
