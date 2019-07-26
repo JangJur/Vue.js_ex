@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Event Bus</title>
+    <title>Vue Router Sample</title>
 </head>
 
 <body>
     <div id="app">
-        <child-component v-bind:propsdata="message"></child-component>
-        <slibling-component v-bind:slib="anotherMessage"></slibling-component>
+        <h1>뷰 라우터 예제</h1>
+        <p>
+            <router-link to="/main">Main 컴포넌트로 이동</router-link>
+            <router-link to="/login">Login 컴포넌트로 이동</router-link>
+        </p>
+        <router-view></router-view>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
     <script src="js/app.js"></script>
 </body>
 

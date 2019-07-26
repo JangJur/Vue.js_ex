@@ -1,18 +1,16 @@
-Vue.component('slibling-component', {
-    props: ['slib'],
-    template: '<p>{{ slib }}</p>'
-});
+var Main = { template: '<div>main</div>' };
+var Login = { template: '<div>login</div>' };
 
-Vue.component('child-component', {
-    props: ['propsdata'],
-    template: '<p>{{ propsdata }}</p>'
+var routes = [
+    { path: '/main', component: Main },
+    { path: '/login', component: Login }
+];
+
+var router = new VueRouter({
+    mode: 'history',
+    routes
 });
 
 var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue! passed from Parent Component',
-        anotherMessage : 'You know what? This is another message!'
-    }
-
-});
+    router
+}).$mount('#app');
